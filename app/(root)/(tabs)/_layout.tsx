@@ -1,4 +1,5 @@
 import { NativeTabs, Icon, Label } from "expo-router/unstable-native-tabs";
+import { Text, View } from "react-native";
 
 export default function TabsLayout() {
 

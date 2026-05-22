@@ -12,10 +12,8 @@ if (!publishableKey) {
 
 export default function RootLayout() {
   return (
-    <SafeAreaView>
       <ClerkProvider publishableKey={publishableKey} tokenCache={tokenCache}>
         <Slot />
       </ClerkProvider>
-    </SafeAreaView>
   );
 }
