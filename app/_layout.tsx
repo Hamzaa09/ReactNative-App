@@ -3,6 +3,7 @@ import { tokenCache } from "@clerk/expo/token-cache";
 import { Slot } from "expo-router";
 import "../global.css";
 import { SafeAreaView } from "react-native-safe-area-context";
+import React from "react";
 
 const publishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY!;
 

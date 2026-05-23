@@ -1,6 +1,7 @@
 import { Show, useUser } from '@clerk/expo'
 import { useClerk } from '@clerk/expo'
 import { Href, Link } from 'expo-router'
+import React from 'react'
 import { Text, View, Pressable, StyleSheet } from 'react-native'
 
 export default function Page() {

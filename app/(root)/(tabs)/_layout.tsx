@@ -1,29 +1,49 @@
-import { NativeTabs, Icon, Label } from "expo-router/unstable-native-tabs";
-import { Text, View } from "react-native";
+import React from "react";
+import { Tabs } from "expo-router";
+import { Ionicons } from "@expo/vector-icons";
 
 export default function TabsLayout() {
-
   return (
-    <NativeTabs>
-      <NativeTabs.Trigger name="home">
-        <Icon sf="house.fill" />
-        <Label>Home</Label>
-      </NativeTabs.Trigger>
+    <Tabs screenOptions={{ headerShown: false }}>
+      <Tabs.Screen
+        name="home"
+        options={{
+          title: "Home",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="home-outline" size={size} color={color} />
+          ),
+        }}
+      />
 
-      <NativeTabs.Trigger name="search">
-        <Icon sf="magnifyingglass" />
-        <Label>Search</Label>
-      </NativeTabs.Trigger>
+      <Tabs.Screen
+        name="search"
+        options={{
+          title: "Search",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="search-outline" size={size} color={color} />
+          ),
+        }}
+      />
 
-      <NativeTabs.Trigger name="saved">
-        <Icon sf="heart.fill" />
-        <Label>Saved</Label>
-      </NativeTabs.Trigger>
+      <Tabs.Screen
+        name="saved"
+        options={{
+          title: "Saved",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="heart-outline" size={size} color={color} />
+          ),
+        }}
+      />
 
-      <NativeTabs.Trigger name="profile">
-        <Icon sf="person.fill" />
-        <Label>Profile</Label>
-      </NativeTabs.Trigger>
-    </NativeTabs>
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: "Profile",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="person-outline" size={size} color={color} />
+          ),
+        }}
+      />
+    </Tabs>
   );
 }
