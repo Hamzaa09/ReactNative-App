@@ -1,8 +1,11 @@
 import React from "react";
 import { Tabs } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
+import { userStore } from "@/store/userStore";
 
 export default function TabsLayout() {
+  const isAdmin = userStore((state) => state.isAdmin);
+
   return (
     <Tabs screenOptions={{ headerShown: false }}>
       <Tabs.Screen
@@ -24,6 +27,18 @@ export default function TabsLayout() {
           ),
         }}
       />
+
+      {isAdmin === true && (
+        <Tabs.Screen
+          name="create"
+          options={{
+            title: "Create",
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="add-circle-outline" size={size*1.2} color={color} />
+            ),
+          }}
+        />
+      )}
 
       <Tabs.Screen
         name="saved"

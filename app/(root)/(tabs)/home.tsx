@@ -1,12 +1,14 @@
-import { Show, useUser } from '@clerk/expo'
-import { useClerk } from '@clerk/expo'
-import { Href, Link } from 'expo-router'
-import React from 'react'
-import { Text, View, Pressable, StyleSheet } from 'react-native'
+import { userStore } from "@/store/userStore";
+import { Show, useUser } from "@clerk/expo";
+import { useClerk } from "@clerk/expo";
+import { Href, Link } from "expo-router";
+import React from "react";
+import { Text, View, Pressable, StyleSheet } from "react-native";
 
 export default function Page() {
-  const { user } = useUser()
-  const { signOut } = useClerk()
+  const { user } = useUser();
+  const { signOut } = useClerk();
+  const isAdmin = userStore((state) => state.isAdmin);
 
   return (
     <View style={styles.container}>
@@ -25,8 +27,10 @@ export default function Page() {
           <Text style={styles.buttonText}>Sign out</Text>
         </Pressable>
       </Show>
+      
+      <Text>{isAdmin ? "You are an admin" : "You are a regular user"}</Text>
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -38,17 +42,17 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   button: {
-    backgroundColor: '#0a7ea4',
+    backgroundColor: "#0a7ea4",
     paddingVertical: 12,
     paddingHorizontal: 24,
     borderRadius: 8,
-    alignItems: 'center',
+    alignItems: "center",
   },
   buttonText: {
-    color: '#fff',
-    fontWeight: '600',
+    color: "#fff",
+    fontWeight: "600",
   },
-})
+});
