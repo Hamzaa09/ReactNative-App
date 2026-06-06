@@ -68,8 +68,6 @@ export default function Page() {
       await signIn.mfa.sendEmailCode();
       setPendingVerification(true);
     }
-    await signIn.mfa.sendEmailCode();
-    setPendingVerification(true);
   };
 
   if (pendingVerification) {
