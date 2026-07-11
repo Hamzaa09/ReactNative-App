@@ -1,6 +1,6 @@
 import { View, Text, TouchableOpacity, Image } from "react-native";
 import React from "react";
-import { Venue } from "@/types";
+import { Venue } from "@/types/index";
 import { Ionicons } from "@expo/vector-icons";
 import { formatPrice } from "@/lib/utils";
 import { useRouter } from "expo-router";
@@ -38,7 +38,7 @@ export default function FeaturedCard({ venue }: { venue: Venue }) {
         <View className="flex-row items-center justify-between">
           <View className="flex-row items-baseline">
             <Text className="text-blue-600 font-bold text-base">
-              {formatPrice(venue.price_per_hour)}
+              PKR: {formatPrice(venue.price_per_hour)}
             </Text>
             <Text className="text-blue-600 font-medium text-xs ml-0.5">
               /2hrs

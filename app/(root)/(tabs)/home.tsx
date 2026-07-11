@@ -1,7 +1,7 @@
 import FeaturedCard from "@/components/FeaturedCard";
-import VenureCard from "@/components/VenureCard";
+import VenureCard from "@/components/VenueCard";
 import { supabase } from "@/lib/supabase";
-import { Venue } from "@/types";
+import { Venue } from "@/types/index";
 import { useUser } from "@clerk/expo";
 import { Ionicons } from "@expo/vector-icons";
 import { Image } from "expo-image";
@@ -14,7 +14,6 @@ import {
   TouchableOpacity,
   ActivityIndicator,
 } from "react-native";
-import { PropsFilter } from "react-native-reanimated/lib/typescript/createAnimatedComponent/PropsFilter";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Page() {
@@ -40,9 +39,6 @@ export default function Page() {
         .select("*")
         .eq("is_featured", false)
         .order("created_at", { ascending: true });
-
-      // console.log(recommendedVenues);
-      // console.log(featuredVenues);
 
       setRecommended(recommendedVenues ?? []);
       setFeatured(featuredVenues ?? []);
@@ -73,7 +69,7 @@ export default function Page() {
               <Image
                 source={require("@/assets/images/logo_2.png")}
                 resizeMode="contain"
-                style={{ width: 90, height: 56 }}
+                style={{ width: 90, height: 52 }}
               />
 
               <View className="items-end">

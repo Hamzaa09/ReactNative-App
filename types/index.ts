@@ -1,4 +1,4 @@
-export type VenueType = 'hall' | 'outdoor' | 'rooftop' | 'banquet' | 'conference';
+export type VenueType = 'hall' | 'outdoor' | 'rooftop' | 'banquet' | 'conference' | null;
 
 export interface Venue {
   id: string;                    // uuid

@@ -1,7 +1,7 @@
 import { View, Text, TouchableOpacity, Image } from "react-native";
 import React, { useState } from "react";
 import { useRouter } from "expo-router";
-import { Venue } from "@/types";
+import { Venue } from "@/types/index";
 import { Ionicons } from "@expo/vector-icons";
 import { formatPrice } from "@/lib/utils";
 
@@ -13,6 +13,13 @@ export default function VenureCard({ venue }: { venue: Venue }) {
     <TouchableOpacity
       onPress={() => router.push(`/(root)/venue/${venue.id}`)}
       className="flex-row bg-white rounded-2xl mb-4 overflow-hidden mx-5"
+      style={{
+        shadowColor: "#000",
+        shadowOffset: { width: 0, height: 1 },
+        shadowOpacity: 0.04,
+        shadowRadius: 4,
+        elevation: 1,
+      }}
     >
       {/* Image */}
       <Image
@@ -40,7 +47,7 @@ export default function VenureCard({ venue }: { venue: Venue }) {
 
         <View className="flex-row items-center justify-between">
           <Text className="text-blue-600 font-bold text-sm">
-            {formatPrice(venue.price_per_hour)}
+            PKR: {formatPrice(venue.price_per_hour)}
           </Text>
 
           <View className="flex-row items-center gap-1">
