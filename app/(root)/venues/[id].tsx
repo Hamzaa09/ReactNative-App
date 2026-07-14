@@ -275,9 +275,6 @@ export default function VenueDetails() {
           </TouchableOpacity>
         </View>
       </ScrollView>
-
-      {/* Venue Details  */}
-      <Text>Hello</Text>
     </View>
   );
 }
