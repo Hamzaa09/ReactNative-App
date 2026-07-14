@@ -10,10 +10,9 @@ export default function FeaturedCard({ venue }: { venue: Venue }) {
   return (
     <TouchableOpacity
       className="w-72 mr-2 rounded-3xl overflow-hidden bg-white"
-      onPress={() => router.push(`/(root)/venue/${venue.id}`)}
+      onPress={() => router.push(`/(root)/venues/${venue.id}`)}
     >
       <Image source={{ uri: venue.images[0] }} className="w-full h-44" />
-
       <View className="absolute top-3 left-3 rounded-full bg-white/90 px-3 py-1">
         <Text className="text-sm font-semibold text-blue-600 capitalize">
           {venue.type}
