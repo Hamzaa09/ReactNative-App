@@ -23,6 +23,7 @@ import { supabase } from "@/lib/supabase";
 import { Ionicons } from "@expo/vector-icons";
 import { useSavedVenue } from "@/hooks/useSavedVenue";
 import { formatPrice } from "@/lib/utils";
+import ImageViewing from "react-native-image-viewing";
 
 const { width } = Dimensions.get("window");
 
@@ -277,10 +278,10 @@ export default function VenueDetails() {
       </ScrollView>
 
       <ImageViewing
-        images={property.images.map((uri) => ({ uri }))}
+        images={venue.images.map((uri) => ({ uri }))}
         imageIndex={activeIndex}
-        visible={imageViewerVisible}
-        onRequestClose={() => setImageViewerVisible(false)}
+        visible={imageViewer}
+        onRequestClose={() => setImageViewer(false)}
       />
     </View>
   );
