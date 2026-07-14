@@ -4,14 +4,15 @@ import { useRouter } from "expo-router";
 import { Venue } from "@/types/index";
 import { Ionicons } from "@expo/vector-icons";
 import { formatPrice } from "@/lib/utils";
+import { useSavedVenue } from "@/hooks/useSavedVenue";
 
 export default function VenureCard({ venue }: { venue: Venue }) {
   const router = useRouter();
-  const [isSaved, setIsSaved] = useState(false);
+  const { isSaved, saveLoading, toggleSave } = useSavedVenue(venue.id);
 
   return (
     <TouchableOpacity
-      onPress={() => router.push(`/(root)/venue/${venue.id}`)}
+      onPress={() => router.push(`/(root)/venues/${venue.id}`)}
       className="flex-row bg-white rounded-2xl mb-4 overflow-hidden mx-5"
       style={{
         shadowColor: "#000",
@@ -57,7 +58,11 @@ export default function VenureCard({ venue }: { venue: Venue }) {
         </View>
       </View>
 
-      <TouchableOpacity className="w-10 items-center pt-3">
+      <TouchableOpacity
+        className="w-10 items-center pt-3"
+        onPress={toggleSave}
+        disabled={saveLoading}
+      >
         <Ionicons
           name={isSaved ? "heart" : "heart-outline"}
           size={18}
