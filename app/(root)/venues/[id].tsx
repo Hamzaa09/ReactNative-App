@@ -275,6 +275,13 @@ export default function VenueDetails() {
           </TouchableOpacity>
         </View>
       </ScrollView>
+
+      <ImageViewing
+        images={property.images.map((uri) => ({ uri }))}
+        imageIndex={activeIndex}
+        visible={imageViewerVisible}
+        onRequestClose={() => setImageViewerVisible(false)}
+      />
     </View>
   );
 }
