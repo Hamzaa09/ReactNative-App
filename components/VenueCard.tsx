@@ -6,9 +6,18 @@ import { Ionicons } from "@expo/vector-icons";
 import { formatPrice } from "@/lib/utils";
 import { useSavedVenue } from "@/hooks/useSavedVenue";
 
-export default function VenureCard({ venue }: { venue: Venue }) {
+export default function VenureCard({
+  venue,
+  onUnsave,
+}: {
+  venue: Venue;
+  onUnsave?: () => void;
+}) {
   const router = useRouter();
-  const { isSaved, saveLoading, toggleSave } = useSavedVenue(venue.id);
+  const { isSaved, saveLoading, toggleSave } = useSavedVenue(
+    venue.id,
+    onUnsave,
+  );
 
   return (
     <TouchableOpacity

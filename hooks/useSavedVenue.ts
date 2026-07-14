@@ -2,7 +2,7 @@ import { useAuth } from "@clerk/expo";
 import { useSupabase } from "./useSupabase";
 import { useEffect, useState, useCallback } from "react";
 
-export function useSavedVenue(venueId: string) {
+export function useSavedVenue(venueId: string, onUnsave?: () => void) {
   const { userId } = useAuth();
   const authSupabase = useSupabase();
 
@@ -45,6 +45,7 @@ export function useSavedVenue(venueId: string) {
 
         if (error) throw error;
         setIsSaved(false);
+        onUnsave?.();
       } else {
         const { error } = await authSupabase
           .from("saved_venues")
