@@ -27,6 +27,11 @@
     "plugins": [
       "expo-router",
       [
+        "expo-location", {
+          "locationWhenInUsePermission": "Allow Bazm to access your location for cordinates."
+        }
+      ],
+      [
         "expo-splash-screen",
         {
           "image": "./assets/images/logo.png",

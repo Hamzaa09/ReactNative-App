@@ -54,7 +54,7 @@ export default function FilterModal({
     onClose();
   };
 
-  const types: { label: string; value: VenueType }[] = [
+  const types: { label: string; value: VenueType | null }[] = [
     { label: "All", value: null },
     { label: "Hall", value: "hall" },
     { label: "Outdoor", value: "outdoor" },
@@ -112,16 +112,16 @@ export default function FilterModal({
           contentContainerStyle={{ padding: 20, paddingBottom: 40 }}
           showsVerticalScrollIndicator={false}
         >
-          {/* Property */}
+          {/* Venue */}
           <Text className="text-base font-bold text-gray-800 mb-3">
-            Property Type
+            Venue Type
           </Text>
 
           <View className="flex-row flex-wrap gap-2 mb-6">
             {types.map((item) => (
               <TouchableOpacity
                 key={String(item.value)}
-                onPress={() => setType(item.value)}
+                onPress={() => setType(item.value as VenueType)}
                 className={chip(type === item.value)}
               >
                 <Text className={chipText(type === item.value)}>

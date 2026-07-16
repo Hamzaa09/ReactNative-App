@@ -17,7 +17,7 @@ import { useSupabase } from "@/hooks/useSupabase";
 interface SavedVenue {
   id: string;
   venue_id: string;
-  properties: Venue;
+  venues: Venue;
 }
 
 export default function saved() {
@@ -42,7 +42,7 @@ export default function saved() {
       (data ?? []).map((item: any) => ({
         id: item.id,
         venue_id: item.venue_id,
-        properties: item.venues,
+        venues: item.venues,
       })),
     );
 
@@ -66,7 +66,7 @@ export default function saved() {
         <Text className="text-2xl font-bold text-gray-900">Saved</Text>
         {!loading && (
           <Text className="text-sm text-gray-400 mt-1">
-            {saved.length} {saved.length === 1 ? "property" : "properties"}{" "}
+            {saved.length} {saved.length === 1 ? "venue" : "venues"}{" "}
             saved
           </Text>
         )}
@@ -84,7 +84,7 @@ export default function saved() {
           showsVerticalScrollIndicator={false}
           renderItem={({ item }) => (
             <VenureCard
-              venue={item.properties}
+              venue={item.venues}
               onUnsave={() => handleUnsave(item.venue_id)}
             />
           )}
@@ -94,17 +94,17 @@ export default function saved() {
                 <Ionicons name="heart-outline" size={36} color="#EF4444" />
               </View>
               <Text className="text-gray-700 text-lg font-bold mb-1">
-                No saved properties
+                No saved venues
               </Text>
               <Text className="text-gray-400 text-sm text-center px-8">
-                Tap the heart icon on any property to save it here
+                Tap the heart icon on any venue to save it here
               </Text>
               <TouchableOpacity
                 onPress={() => router.push("/(root)/(tabs)/search")}
                 className="mt-6 bg-blue-600 px-6 py-3 rounded-2xl"
               >
                 <Text className="text-white font-semibold">
-                  Browse Properties
+                  Browse Venues
                 </Text>
               </TouchableOpacity>
             </View>

@@ -12,7 +12,6 @@ export interface Venue {
   city: string;
   latitude: number | null;
   longitude: number | null;
-  amenities: string[];           // e.g. ['projector', 'catering', 'parking']
   images: string[];              // array of URLs
   is_featured: boolean;
   is_available: boolean;

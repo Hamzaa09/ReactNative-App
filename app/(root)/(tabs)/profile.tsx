@@ -112,7 +112,7 @@ export default function ProfileScreen() {
       <View className="px-6 gap-2">
         <MenuItem
           icon="heart-outline"
-          label="Saved Properties"
+          label="Saved Venues"
           onPress={() => router.push("/(root)/(tabs)/saved")}
         />
         <MenuItem

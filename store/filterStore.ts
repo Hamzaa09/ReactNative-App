@@ -9,7 +9,7 @@ interface FilterStore {
   location: string | null;
 
   setSearch: (search: string) => void;
-  setType: (type: VenueType) => void;
+  setType: (type: VenueType | null) => void;
   setMinPrice: (minPrice: Number | null) => void;
   setMaxPrice: (maxPrice: Number | null) => void;
   setLocation: (location: string | null) => void;

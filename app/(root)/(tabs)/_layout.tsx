@@ -28,17 +28,21 @@ export default function TabsLayout() {
         }}
       />
 
-      {isAdmin === true && (
-        <Tabs.Screen
-          name="create"
-          options={{
-            title: "Create",
-            tabBarIcon: ({ color, size }) => (
-              <Ionicons name="add-circle-outline" size={size*1.2} color={color} />
-            ),
-          }}
-        />
-      )}
+      {/* {isAdmin === true && ( */}
+      <Tabs.Screen
+        name="create"
+        options={{
+          title: "Create",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons
+              name="add-circle-outline"
+              size={size * 1.2}
+              color={color}
+            />
+          ),
+        }}
+      />
+      {/* )} */}
 
       <Tabs.Screen
         name="saved"

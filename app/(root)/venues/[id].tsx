@@ -29,8 +29,7 @@ const { width } = Dimensions.get("window");
 
 export default function VenueDetails() {
   const { id } = useLocalSearchParams<{ id: string }>();
-  const userId = useAuth();
-  const isAdmin = userStore((state) => state.isAdmin);
+  const { userId } = useAuth();
   const router = useRouter();
 
   const [loading, setLoading] = useState(false);
@@ -38,6 +37,29 @@ export default function VenueDetails() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [expanded, setExpanded] = useState(false);
   const [imageViewer, setImageViewer] = useState(false);
+  const [admin, setAdmin] = useState<boolean>(false);
+
+  const fetchadmin = async () => {
+    if (!userId) return;
+
+    const { data, error } = await authSupabase
+      .from("users")
+      .select("is_admin")
+      .eq("clerk_id", userId)
+      .single();
+
+    if (error) {
+      console.error("Failed to fetch admin status:", error);
+      setAdmin(false);
+      return;
+    }
+
+    setAdmin(!!data?.is_admin);
+  };
+
+  useEffect(() => {
+    fetchadmin();
+  }, [userId]);
 
   const { saveLoading, isSaved, toggleSave } = useSavedVenue(id);
 
@@ -74,7 +96,7 @@ export default function VenueDetails() {
     return (
       <View>
         <View className="flex-1 items-center justify-center bg-white">
-          <Text className="text-gray-500">Property not found</Text>
+          <Text className="text-gray-500">Venue not found</Text>
         </View>
       </View>
     );
@@ -86,6 +108,14 @@ export default function VenueDetails() {
   };
 
   const handleDelete = () => {
+    if (!admin) {
+      Alert.alert(
+        "Access Denied",
+        "You must be an admin to perform this action.",
+      );
+      return;
+    }
+
     Alert.alert("Delete Venue", "Are you sure?", [
       { text: "Cancel", style: "cancel" },
       {
@@ -269,10 +299,22 @@ export default function VenueDetails() {
           {/* Delete button  */}
           <TouchableOpacity
             onPress={handleDelete}
-            className="flex-1 flex-row items-center justify-center gap-2 bg-red-50 py-4 rounded-2xl border border-red-100"
+            className={`flex-1 flex-row items-center justify-center gap-2 py-4 rounded-2xl border ${
+              admin
+                ? "bg-red-50 border-red-100"
+                : "bg-gray-100 border-gray-200 opacity-50"
+            }`}
           >
-            <Ionicons name="trash-outline" size={18} color="#EF4444" />
-            <Text className="text-red-500 font-semibold">Delete</Text>
+            <Ionicons
+              name="trash-outline"
+              size={18}
+              color={admin ? "#EF4444" : "#9CA3AF"}
+            />
+            <Text
+              className={`font-semibold ${admin ? "text-red-500" : "text-gray-400"}`}
+            >
+              Delete
+            </Text>
           </TouchableOpacity>
         </View>
       </ScrollView>
