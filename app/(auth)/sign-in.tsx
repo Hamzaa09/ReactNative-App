@@ -64,9 +64,15 @@ export default function Page() {
           router.replace(url as any);
         },
       });
+    } else if (signIn.status === "needs_second_factor") {
+      // Find which second factor is required, and trigger it
+      await signIn.mfa.sendEmailCode(); // or the relevant MFA method
+      setPendingVerification(true);
     } else if (signIn.status === "needs_client_trust") {
       await signIn.mfa.sendEmailCode();
       setPendingVerification(true);
+    } else {
+      console.log("Unhandled status:", signIn.status);
     }
   };
 
