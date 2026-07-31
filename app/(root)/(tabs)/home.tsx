@@ -141,7 +141,9 @@ export default function Page() {
             <View className="items-center py-10">
               <Text className="text-gray-400">No venue found</Text>
             </View>
-          ) : null
+          ) : (
+            <ActivityIndicator />
+          )
         }
       />
     </SafeAreaView>
