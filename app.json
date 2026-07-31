@@ -18,7 +18,11 @@
       },
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
-      "package": "com.anonymous.firstapp"
+      "package": "com.anonymous.firstapp",
+      "permissions": [
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION"
+      ]
     },
     "web": {
       "output": "static",
@@ -27,7 +31,8 @@
     "plugins": [
       "expo-router",
       [
-        "expo-location", {
+        "expo-location",
+        {
           "locationWhenInUsePermission": "Allow Bazm to access your location for cordinates."
         }
       ],
@@ -41,11 +46,19 @@
             "backgroundColor": "#000000"
           }
         }
-      ]
+      ],
+      "expo-font",
+      "expo-secure-store"
     ],
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "46db315a-2d11-44ef-bf40-8e603f20c4ac"
+      }
     }
   }
 }
