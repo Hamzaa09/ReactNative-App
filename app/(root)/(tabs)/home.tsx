@@ -142,7 +142,11 @@ export default function Page() {
               <Text className="text-gray-400">No venue found</Text>
             </View>
           ) : (
-            <ActivityIndicator />
+            <ActivityIndicator
+              size={"small"}
+              className="py-10"
+              color={"#2563EB"}
+            />
           )
         }
       />
