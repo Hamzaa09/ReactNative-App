@@ -151,15 +151,6 @@ export default function create() {
   };
 
   const handleFormSubmit = async () => {
-    if (!isAdmin) {
-      Alert.alert(
-        "Access Denied",
-        "You must be an admin to perform this action.",
-      );
-
-      return;
-    }
-
     if (!form.title.trim())
       return Alert.alert("Validation", "Title is required.");
 
@@ -181,6 +172,15 @@ export default function create() {
       return Alert.alert("Validation", "City is required.");
     if (form.images.length === 0)
       return Alert.alert("Validation", "Please upload at least one image.");
+
+    if (!isAdmin) {
+      Alert.alert(
+        "Access Denied",
+        "You must be an admin to perform this action.",
+      );
+
+      return;
+    }
 
     setSubmitting(true);
 

@@ -56,10 +56,10 @@ export default function Page() {
   );
 
   return (
-    <SafeAreaView className="bg-gray-50 flex-1">
+    <SafeAreaView className="bg-gray-50 flex-1" edges={['top']}>
       <FlatList
         data={recommended}
-        contentContainerStyle={{ paddingBottom: 100 }}
+        contentContainerStyle={{ paddingBottom: 50 }}
         keyExtractor={(item) => item.id}
         showsVerticalScrollIndicator={false}
         ListHeaderComponent={
@@ -75,7 +75,7 @@ export default function Page() {
               <View className="items-end">
                 <Text>Welcome back!</Text>
                 <Text className="text-gray-900 text-base font-bold">
-                  {user?.lastName ?? "User"}
+                  {user?.firstName ?? "User"}
                 </Text>
               </View>
             </View>

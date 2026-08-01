@@ -85,7 +85,7 @@ export default function search() {
         </Text>
       </View>
 
-      <View className="flex-row items-center gap-3 px-5">
+      <View className="flex-row items-center gap-3 px-5 py-4">
         <View
           className="flex-1 flex-row items-center bg-white rounded-2xl px-4 gap-3"
           style={{
@@ -199,7 +199,7 @@ export default function search() {
       {/* Results  */}
       <FlatList
         data={results}
-        contentContainerStyle={{ paddingTop: 20, paddingBottom: 100 }}
+        contentContainerStyle={{ paddingTop: 10, paddingBottom: 200 }}
         keyExtractor={(item) => item.id}
         showsVerticalScrollIndicator={false}
         ListHeaderComponent={
