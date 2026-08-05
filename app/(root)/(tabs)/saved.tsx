@@ -60,14 +60,13 @@ export default function saved() {
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-gray-50">
+    <SafeAreaView className="flex-1 bg-gray-50" edges={["top"]}>
       {/* Header */}
       <View className="px-5 pt-4 pb-3">
         <Text className="text-2xl font-bold text-gray-900">Saved</Text>
         {!loading && (
           <Text className="text-sm text-gray-400 mt-1">
-            {saved.length} {saved.length === 1 ? "venue" : "venues"}{" "}
-            saved
+            {saved.length} {saved.length === 1 ? "venue" : "venues"} saved
           </Text>
         )}
       </View>
@@ -103,9 +102,7 @@ export default function saved() {
                 onPress={() => router.push("/(root)/(tabs)/search")}
                 className="mt-6 bg-blue-600 px-6 py-3 rounded-2xl"
               >
-                <Text className="text-white font-semibold">
-                  Browse Venues
-                </Text>
+                <Text className="text-white font-semibold">Browse Venues</Text>
               </TouchableOpacity>
             </View>
           }

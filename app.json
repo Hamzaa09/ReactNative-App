@@ -6,7 +6,7 @@
     "orientation": "portrait",
     "icon": "./assets/images/square-logo.png",
     "scheme": "firstapp",
-    "userInterfaceStyle": "automatic",
+    "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true
@@ -14,8 +14,9 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/square-logo.png",
-        "backgroundColor": "transparent"
+        "backgroundColor": "#ffffff"
       },
+      "backgroundColor": "#ffffff",
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
       "package": "com.anonymous.firstapp",
