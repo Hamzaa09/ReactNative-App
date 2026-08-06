@@ -4,7 +4,7 @@ A React Native (Expo) mobile app for discovering and connecting around social ga
 
 <p align="right">
 
-####  Download Link: [Android](https://drive.google.com/file/d/15Ee6OJizoGDN2gX9KbKmFSo12jnfrLbk/view?usp=sharing) [| iOS (Coming Soon)](#)
+####  Download Link: [Android ](https://github.com/Hamzaa09/ReactNative-App/releases/download/v1.0.0/Bazm.apk)[| iOS]()
 </p>
 
 ## Demo
