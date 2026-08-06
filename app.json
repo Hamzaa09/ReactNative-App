@@ -41,7 +41,7 @@
         "expo-splash-screen",
         {
           "image": "./assets/images/square-logo.png",
-          "imageWidth": 280,
+          "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#ffffff",
           "dark": {
